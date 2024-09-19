@@ -1,0 +1,6 @@
+@Vesta.Navigator_HostAddress = http://localhost:5059
+
+GET {{Vesta.Navigator_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

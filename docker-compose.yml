@@ -1,0 +1,8 @@
+services:
+  vesta.server:
+    image: ${DOCKER_REGISTRY-}vestaserver
+    build:
+      context: .
+      dockerfile: Vesta.Server/Dockerfile
+    ports:
+      - "12321:12321"

@@ -1,0 +1,6 @@
+@Vesta.Rooms_HostAddress = http://localhost:5066
+
+GET {{Vesta.Rooms_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

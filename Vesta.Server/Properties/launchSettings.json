@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "Vesta.Server": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "asd": "efg"
+      }
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
