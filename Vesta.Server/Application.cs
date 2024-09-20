@@ -43,8 +43,10 @@ internal class Application : IApplication {
     }
 
     public async Task Run() {
-        await this.svr_boostrap.BindAsync( new IPEndPoint( IPAddress.Parse( "0.0.0.0" ), 12321 ) );
+        int port = Convert.ToInt32( Environment.GetEnvironmentVariable( "VESTA_PORT" ) ?? "12321" );
 
-        this.logger.LogCritical( "Listening." );
+        await this.svr_boostrap.BindAsync( new IPEndPoint( IPAddress.Parse( "0.0.0.0" ), port ) );
+
+        this.logger.LogCritical( $"Listening on port {port}." );
     }
 }
