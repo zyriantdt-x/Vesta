@@ -32,4 +32,6 @@ internal static class OutgoingPackets {
     public const short ROOM_INTEREST = 258;
     public const short OPEN_CONNECTION = 19;
     public const short FLAT_LET_IN = 41;
+    public const short ROOM_URL = 166;
+    public const short ROOM_READY = 69;
 }
