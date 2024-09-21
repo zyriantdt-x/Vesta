@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Vesta.Shared.Http.Requests;
 using Vesta.Shared.Http.Responses.Rooms;
 
 namespace Vesta.Server.ServiceApis;
@@ -62,5 +64,24 @@ internal class FlatServiceApi : IFlatServiceApi {
             return null;
 
         return http_res_content;
+    }
+
+    public async Task<CreateRoomSessionHttpResponse> CreateRoomSession( int room_id, int user_id ) {
+        CreateRoomSessionHttpRequest req = new() { RoomId = room_id, UserId = user_id };
+
+        HttpResponseMessage http_res = await this.http_client.SendAsync( new() {
+            Method = HttpMethod.Post,
+            RequestUri = new Uri( $"{API_URL}/api/room_session/create" ),
+            Content = new FormUrlEncodedContent( req.Compose() )
+        } );
+
+        if( !http_res.IsSuccessStatusCode )
+            return null;
+
+        CreateRoomSessionHttpResponse? res = await JsonSerializer.DeserializeAsync<CreateRoomSessionHttpResponse>( http_res.Content.ReadAsStream() );
+        if( res == null )
+            return null;
+
+        return res;
     }
 }

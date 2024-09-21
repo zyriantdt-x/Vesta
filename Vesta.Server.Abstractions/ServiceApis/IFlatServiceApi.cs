@@ -11,4 +11,6 @@ public interface IFlatServiceApi {
     Task<GetFlatHttpResponse?> GetFlatById( int id );
 
     Task<RoomModelHttpResponse?> GetRoomModelByName( string name );
+
+    Task<CreateRoomSessionHttpResponse> CreateRoomSession( int room_id, int user_id );
 }
