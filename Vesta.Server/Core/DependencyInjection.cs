@@ -60,6 +60,7 @@ internal static class DependencyInjection {
         services.AddSingleton<IPacketHandler, GetRoomInterestPacketHandler>();
         services.AddSingleton<IPacketHandler, RoomDirectoryPacketHandler>();
         services.AddSingleton<IPacketHandler, TryFlatPacketHandler>();
+        services.AddSingleton<IPacketHandler, GoToFlatPacketHandler>();
     }
 
     private static void AddServiceApis( this IServiceCollection services ) {
