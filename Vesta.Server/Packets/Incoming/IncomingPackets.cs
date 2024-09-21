@@ -37,4 +37,5 @@ internal static class IncomingPackets {
     public const short GET_INTEREST = 182;
     public const short ROOM_DIRECTORY = 2;
     public const short TRY_FLAT = 57;
+    public const short GO_TO_FLAT = 59;
 }
